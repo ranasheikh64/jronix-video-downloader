@@ -52,16 +52,12 @@ class DownloaderScreen extends GetView<DownloaderController> {
                       ),
                       ElevatedButton(
                         onPressed: () {
-                          const link = 'YOUR_DRIVE_APK_LINK_HERE';
-                          if (link.contains('YOUR_DRIVE_APK_LINK_HERE') || link.isEmpty) {
-                            Get.snackbar('Coming Soon', 'Our mobile app is launching very soon!', backgroundColor: Colors.blue, colorText: Colors.white);
-                            return;
-                          }
+                          const link = 'https://video-downloader-backend-1qvs.onrender.com/download-app';
                           final uri = Uri.tryParse(link);
                           if (uri != null && uri.hasScheme) {
                             launchUrl(uri, mode: LaunchMode.externalApplication);
                           } else {
-                            Get.snackbar('Coming Soon', 'Our mobile app is launching very soon!', backgroundColor: Colors.blue, colorText: Colors.white);
+                            Get.snackbar('Error', 'Could not open download link', backgroundColor: Colors.red, colorText: Colors.white);
                           }
                         },
                         style: ElevatedButton.styleFrom(
