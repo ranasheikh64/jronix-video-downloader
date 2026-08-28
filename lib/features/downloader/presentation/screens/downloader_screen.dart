@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:video_download/features/downloader/presentation/controllers/downloader_controller.dart';
 import '../../domain/models/video_info.dart';
 
@@ -21,6 +23,58 @@ class DownloaderScreen extends GetView<DownloaderController> {
             children: [
               // Top Navigation Bar
               _buildNavBar(context, scrollController, isMobile),
+              
+              if (kIsWeb)
+                Container(
+                  width: double.infinity,
+                  color: const Color(0xFFEFF6FF),
+                  padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
+                  child: Wrap(
+                    alignment: WrapAlignment.center,
+                    crossAxisAlignment: WrapCrossAlignment.center,
+                    spacing: 12,
+                    runSpacing: 8,
+                    children: [
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: const [
+                          Icon(Icons.star, color: Colors.amber, size: 20),
+                          SizedBox(width: 8),
+                          Text(
+                            'For the best experience, download our Mobile App!',
+                            style: TextStyle(
+                              color: Color(0xFF1E3A8A),
+                              fontWeight: FontWeight.w600,
+                              fontSize: 14,
+                            ),
+                          ),
+                        ],
+                      ),
+                      ElevatedButton(
+                        onPressed: () {
+                          const link = 'YOUR_DRIVE_APK_LINK_HERE';
+                          if (link.contains('YOUR_DRIVE_APK_LINK_HERE') || link.isEmpty) {
+                            Get.snackbar('Coming Soon', 'Our mobile app is launching very soon!', backgroundColor: Colors.blue, colorText: Colors.white);
+                            return;
+                          }
+                          final uri = Uri.tryParse(link);
+                          if (uri != null && uri.hasScheme) {
+                            launchUrl(uri, mode: LaunchMode.externalApplication);
+                          } else {
+                            Get.snackbar('Coming Soon', 'Our mobile app is launching very soon!', backgroundColor: Colors.blue, colorText: Colors.white);
+                          }
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0xFF1E3A8A),
+                          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                          minimumSize: const Size(0, 36),
+                        ),
+                        child: const Text('Download', style: TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold)),
+                      ),
+                    ],
+                  ),
+                ),
+
               _buildDivider(),
               const SizedBox(height: 16),
 
@@ -202,6 +256,31 @@ class DownloaderScreen extends GetView<DownloaderController> {
                     scrollController,
                   ),
                   _navLink('How to', false, scrollController),
+                  if (kIsWeb) ...[
+                    const SizedBox(width: 16),
+                    ElevatedButton.icon(
+                      onPressed: () {
+                        const link = 'YOUR_DRIVE_APK_LINK_HERE';
+                        if (link.contains('YOUR_DRIVE_APK_LINK_HERE') || link.isEmpty) {
+                          Get.snackbar('Coming Soon', 'Our mobile app is launching very soon!', backgroundColor: Colors.blue, colorText: Colors.white);
+                          return;
+                        }
+                        final uri = Uri.tryParse(link);
+                        if (uri != null && uri.hasScheme) {
+                          launchUrl(uri, mode: LaunchMode.externalApplication);
+                        } else {
+                          Get.snackbar('Coming Soon', 'Our mobile app is launching very soon!', backgroundColor: Colors.blue, colorText: Colors.white);
+                        }
+                      },
+                      icon: const Icon(Icons.android, color: Colors.white, size: 20),
+                      label: const Text('Download App', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFF2563EB),
+                        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                      ),
+                    ),
+                  ]
                 ],
               ),
             ),
@@ -275,6 +354,27 @@ class DownloaderScreen extends GetView<DownloaderController> {
             ),
             const Divider(),
             _drawerLink('How to', false, scrollController),
+            if (kIsWeb) ...[
+              const Divider(),
+              ListTile(
+                leading: const Icon(Icons.android, color: Color(0xFF2563EB)),
+                title: const Text('Download Mobile App', style: TextStyle(color: Color(0xFF2563EB), fontWeight: FontWeight.bold)),
+                onTap: () {
+                  Get.back(); // close drawer
+                  const link = 'YOUR_DRIVE_APK_LINK_HERE';
+                  if (link.contains('YOUR_DRIVE_APK_LINK_HERE') || link.isEmpty) {
+                    Get.snackbar('Coming Soon', 'Our mobile app is launching very soon!', backgroundColor: Colors.blue, colorText: Colors.white);
+                    return;
+                  }
+                  final uri = Uri.tryParse(link);
+                  if (uri != null && uri.hasScheme) {
+                    launchUrl(uri, mode: LaunchMode.externalApplication);
+                  } else {
+                    Get.snackbar('Coming Soon', 'Our mobile app is launching very soon!', backgroundColor: Colors.blue, colorText: Colors.white);
+                  }
+                },
+              ),
+            ]
           ],
         ),
       ),
