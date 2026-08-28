@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:permission_handler/permission_handler.dart';
 import 'package:gal/gal.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../domain/models/video_info.dart';
@@ -200,12 +199,15 @@ class DownloaderController extends GetxController with WidgetsBindingObserver {
     if (!_isValidUrl(url, activePlatform.value)) {
       // Try to find if it matches another platform
       String? detectedPlatform;
-      if (_isValidUrl(url, 'Facebook'))
+      if (_isValidUrl(url, 'Facebook')) {
         detectedPlatform = 'Facebook';
-      else if (_isValidUrl(url, 'TikTok'))
+      } else if (_isValidUrl(url, 'TikTok')) {
+        // ignore: curly_braces_in_flow_control_structures
         detectedPlatform = 'TikTok';
-      else if (_isValidUrl(url, 'Instagram'))
+      } else if (_isValidUrl(url, 'Instagram')) {
+        // ignore: curly_braces_in_flow_control_structures
         detectedPlatform = 'Instagram';
+      }
 
       if (detectedPlatform != null) {
         changePlatform(detectedPlatform);
