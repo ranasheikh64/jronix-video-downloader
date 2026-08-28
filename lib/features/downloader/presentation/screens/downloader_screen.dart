@@ -202,9 +202,9 @@ class DownloaderScreen extends GetView<DownloaderController> {
             child: Row(
               children: [
                 ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(20),
                   child: Image.asset(
-                    'assets/images/app_logo_new.jpg',
+                    'assets/app_logo.png',
                     height: 40,
                     width: 40,
                     fit: BoxFit.cover,
@@ -308,9 +308,9 @@ class DownloaderScreen extends GetView<DownloaderController> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   ClipRRect(
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(24),
                     child: Image.asset(
-                      'assets/images/app_logo_new.jpg',
+                      'assets/app_logo.png',
                       height: 48,
                       width: 48,
                       fit: BoxFit.cover,
