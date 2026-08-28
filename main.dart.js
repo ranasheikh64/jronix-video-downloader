@@ -90067,7 +90067,7 @@ return new A.BQ(A.axS(!0,new A.OP(j,A.hS(f,B.a6,B.V,B.aj),k),!0,B.bh,!0,!0),h,B.
 a6u(){var s=null,r=A.c([new A.bh(0,B.F,A.aD(13,B.l.C()>>>16&255,B.l.C()>>>8&255,B.l.C()&255),B.hE,10)],t.E),q=A.rF(B.bX,2)
 return A.hS(A.c([B.Fn,B.zx,A.di(s,new A.Jv(A.axe("assets/images/company_logo.png",new A.a2O(),B.fs,s,s),s),B.r,s,s,new A.ct(B.k,s,q,s,r,s,B.fu),s,64,s,s,s,s,s,64),B.zw,B.Wx,B.zy,B.WI],t.p),B.a6,B.V,B.aj)},
 a6A(a,b,c){var s=null,r=c?16:40,q=c?12:20,p=t.p
-p=A.c([A.iE(A.fs(A.c([A.rV(A.eE(8),A.axe("assets/images/app_logo_new.jpg",new A.a2R(),B.fs,40,40),B.aN),B.lr,B.Ge],p),B.a6,B.V,B.aj,0),1)],p)
+p=A.c([A.iE(A.fs(A.c([A.rV(A.eE(20),A.axe("assets/app_logo.png",new A.a2R(),B.fs,40,40),B.aN),B.lr,B.Ge],p),B.a6,B.V,B.aj,0),1)],p)
 if(!c)p.push(new A.fV(new A.a2S(this,b),s))
 if(c)p.push(new A.dg(new A.a2T(),s))
 return A.di(s,A.fs(p,B.a6,B.kF,B.aj,0),B.r,s,s,s,s,s,s,s,new A.aI(r,q,r,q),s,s,s)},
@@ -90162,7 +90162,7 @@ q=q.e.gK()
 if(q!=null)q.K2()},
 $S:0}
 A.a2I.prototype={
-$0(){var s,r,q,p,o=null,n=t.p,m=A.hS(A.c([A.rV(A.eE(8),A.axe("assets/images/app_logo_new.jpg",new A.a2G(),B.fs,48,48),B.aN),B.ie,B.WF],n),B.be,B.uu,B.aj),l=this.a,k=$.al
+$0(){var s,r,q,p,o=null,n=t.p,m=A.hS(A.c([A.rV(A.eE(24),A.axe("assets/app_logo.png",new A.a2G(),B.fs,48,48),B.aN),B.ie,B.WF],n),B.be,B.uu,B.aj),l=this.a,k=$.al
 if(k==null)k=$.al=B.w
 s=A.k(l).i("da.T")
 r=this.b
